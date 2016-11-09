@@ -1,13 +1,12 @@
 (set-env!
+  :source-paths #{"src"}
+  :asset-paths  #{"assets"}
   :dependencies '[[adzerk/boot-cljs          "1.7.228-2"]
                   [adzerk/boot-reload        "0.4.13"]
-                  [hoplon/boot-hoplon        "0.3.0"]
-                  [hoplon/hoplon             "6.0.0-alpha16"]
+                  [hoplon/hoplon             "6.0.0-alpha17"]
                   [org.clojure/clojure       "1.8.0"]
                   [org.clojure/clojurescript "1.9.293"]
-                  [tailrecursion/boot-jetty  "0.1.3"]]
-  :source-paths #{"src"}
-  :asset-paths  #{"assets"})
+                  [tailrecursion/boot-jetty  "0.1.3"]])
 
 (require
   '[adzerk.boot-cljs         :refer [cljs]]
