@@ -13,8 +13,8 @@ computer is set up.
 
 ## Table of Contents
 
-* [One-time computer setup](##one-time-computer-setup)
-* [Project develpoment](#project-developmenht)
+* [One-time computer setup](#one-time-computer-setup)
+* [Project develpoment](#project-development)
 * [References](#references)
 
 ## One-time computer setup
@@ -62,5 +62,6 @@ https://github.com/boot-clj/boot#install
 After you've installed the JDK and `boot`, you can start continuous compilation of this project with the following command:
 
     boot dev
+
 
 
