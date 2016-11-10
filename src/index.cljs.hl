@@ -1,7 +1,36 @@
 (page "index.html")
 
+(defc todos
+  [{:done? false :task "one"}
+   {:done? false :task "two"}
+   {:done? false :task "three"}])
+
+(with-timeout 1000
+  (swap! todos conj {:done? true :task "four"})
+  (with-timeout 1000
+    (swap! todos subvec 1)
+    (with-timeout 1000
+      (swap! todos conj {:done? false :task "heyo"}))))
+
+(defelem todo-item
+  [{:keys [i todo]} _]
+  (li (input
+        :type "checkbox"
+        :checked (cell= (:done? todo))
+        :click   #(swap! todos update-in [@i :done?] not))
+      (span :css (cell= {:text-decoration
+                         (if (:done? todo)
+                           "line-through"
+                           "none")})
+            :text (cell= (:task todo)))))
+
 (html
   (head
     (link :href "app.css" :rel "stylesheet"))
   (body
-    (h1 "Hello, Hoplon!")))
+    (h1 "ToDo")
+    (form
+      (ul
+        (for-tpl [[i todo] (cell= (map-indexed list todos))]
+          (todo-item :i i :todo todo))))))
+
